@@ -26,7 +26,7 @@ CREATE TABLE `employee` (
   `dob` DATE DEFAULT NULL,
   `email` VARCHAR(255) DEFAULT NULL,
   `phone_number` VARCHAR(15) DEFAULT NULL,
-  `salary` DECIMAL(10) NOT NULL,
+  `salary` DECIMAL(10,5) NOT NULL,
   `hire_date` DATETIME DEFAULT CURRENT_TIMESTAMP,
   `dept_id` INT DEFAULT NULL,
   PRIMARY KEY (`emp_id`),
