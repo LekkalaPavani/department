@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS `example_table`;
 -- Table: example_table
 CREATE TABLE `example_table` (
   `id` INT AUTO_INCREMENT NOT NULL,                -- Standard INT for primary key
-  `age` SMALLINT UNSIGNED NOT NULL,                -- SMALLINT for small positive integers
+  `age` SMALLINT UNSIGNED DEFAULT NULL,                -- SMALLINT for small positive integers
   `score` MEDIUMINT NOT NULL,                      -- MEDIUMINT for medium-sized integers
   `temperature` FLOAT(5, 2) NOT NULL,              -- FLOAT for numbers with decimals
   `description` VARCHAR(255) DEFAULT NULL,         -- VARCHAR for text
