@@ -34,5 +34,5 @@ CREATE TABLE `sample_table` (
   
   -- Boolean
   `is_active` BOOLEAN                             -- BOOLEAN (mapped from TINYINT in MySQL)
-) 
+) ;
 
