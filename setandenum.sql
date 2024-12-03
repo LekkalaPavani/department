@@ -1,6 +1,6 @@
 -- Create a database (optional)
-CREATE DATABASE IF NOT EXISTS `ExampleDB`;
-USE `ExampleDB`;
+CREATE DATABASE IF NOT EXISTS `sample_db`;
+USE `sample_db`;
 
 -- Drop table if it already exists
 DROP TABLE IF EXISTS `DemoTable`;
