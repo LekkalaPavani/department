@@ -27,8 +27,6 @@ CREATE TABLE `example_table` (
     
     -- Enum type
     `enum_col` ENUM('value1', 'value2', 'value3'),  -- ENUM
-    `status` ENUM('active', 'inactive', 'pending') NOT NULL,
-    `tags` SET('electronics', 'furniture', 'clothing'),
     
     -- Binary types
     `blob_col` BLOB,                       -- BLOB (binary data up to 65,535 bytes)
