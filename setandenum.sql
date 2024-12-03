@@ -11,6 +11,5 @@ CREATE TABLE `DemoTable` (
     `status` ENUM('active', 'inactive', 'pending') NOT NULL COMMENT 'Only one value can be selected from the list.',
     `tags` SET('electronics', 'furniture', 'clothing') COMMENT 'Multiple values can be selected from the list.',
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`)
 );
-
