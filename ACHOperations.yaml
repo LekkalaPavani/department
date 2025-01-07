@@ -1,0 +1,3851 @@
+openapi: 3.0.0
+info:
+  title: ACH Operations
+  description: This service domain operates the Automated Clearing House (ACH) access gateway between the bank and the ACH service provider
+  version: 12.0.0
+paths:
+  /ACHOperations/{achoperationsid}/Update:
+    put:
+      summary: UpCR Update the operating schedule parameters
+      description: UpCR Update the operating schedule parameters
+      parameters:
+        - name: achoperationsid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ACHReference:
+                  type: string
+                  description: Reference to the ACH service
+                  format: object
+                ACHAccessSchedule:
+                  type: string
+                  description: Details the ACH service availability
+                  format: string
+              description: 'Operate equipment and/or a largely automated facility within ACH Fulfillment. '
+      responses:
+        '200':
+          description: ACHFulfillmentOperatingSession
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ACHReference:
+                    type: string
+                    description: Reference to the ACH service
+                    format: object
+                  ACHAccessSchedule:
+                    type: string
+                    description: Details the ACH service availability
+                    format: string
+                description: 'Operate equipment and/or a largely automated facility within ACH Fulfillment. '
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '429':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+  /ACHOperations/{achoperationsid}/Retrieve:
+    get:
+      summary: ReCR Retrieve details about the ACH access service session
+      description: ReCR Retrieve details about the ACH access service session
+      parameters:
+        - name: achoperationsid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        '200':
+          description: RetrieveACHFulfillmentOperatingSessionResponse
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ACHFulfillmentOperatingSession:
+                    type: object
+                    properties:
+                      ACHReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      ACHAccessSchedule:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                description: 'Output: ReCR Retrieve details about the ACH access service session'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '429':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+  /ACHOperations/{achoperationsid}/InboundACH/Initiate:
+    post:
+      summary: InBQ Initiate an inbound ACH transaction batch handling
+      description: InBQ Initiate an inbound ACH transaction batch handling
+      parameters:
+        - name: achoperationsid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ACHFulfillmentOperatingSession:
+                  type: object
+                  properties:
+                    ACHReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    ACHAccessSchedule:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                InboundACH:
+                  type: object
+                  properties:
+                    ACHPaymentTransactionReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    ACHPaymentTransactionRecord:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    PaymentTransactionInitiatorReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerProductInstanceReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeProductInstanceReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    SpecialInstructions:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    Amount:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    Currency:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    DateType:
+                      type: string
+                      description: "\r\n"
+                      format: string
+              description: 'Input: InBQ Initiate an inbound ACH transaction batch handling'
+      responses:
+        '200':
+          description: InitiateInboundACHResponse
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  InboundACH:
+                    type: object
+                    properties:
+                      InboundACHTransactionBatchReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      DateType:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                description: 'Output: InBQ Initiate an inbound ACH transaction batch handling'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '429':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+  /ACHOperations/{achoperationsid}/InboundACH/{inboundachid}/Update:
+    put:
+      summary: UpBQ Update an inbound ACH transaction batch
+      description: UpBQ Update an inbound ACH transaction batch
+      parameters:
+        - name: achoperationsid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: inboundachid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                InboundACH:
+                  type: object
+                  properties:
+                    InboundACHTransactionBatchReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    ACHPaymentTransactionReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    ACHPaymentTransactionRecord:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    PaymentTransactionInitiatorReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerProductInstanceReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeProductInstanceReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    SpecialInstructions:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    Amount:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    Currency:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    DateType:
+                      type: string
+                      description: "\r\n"
+                      format: string
+              description: 'Input: UpBQ Update an inbound ACH transaction batch'
+      responses:
+        '200':
+          description: UpdateInboundACHResponse
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  InboundACH:
+                    type: object
+                    properties:
+                      InboundACHTransactionBatchReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      ACHPaymentTransactionReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      ACHPaymentTransactionRecord:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      PaymentTransactionInitiatorReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      SpecialInstructions:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Amount:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Currency:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      DateType:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                description: 'Output: UpBQ Update an inbound ACH transaction batch'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '429':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+  /ACHOperations/{achoperationsid}/InboundACH/{inboundachid}/Retrieve:
+    get:
+      summary: ReBQ Retrieve details about an inbound ACH transaction batch
+      description: ReBQ Retrieve details about an inbound ACH transaction batch
+      parameters:
+        - name: achoperationsid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: inboundachid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        '200':
+          description: RetrieveInboundACHResponse
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  InboundACH:
+                    type: object
+                    properties:
+                      InboundACHTransactionBatchReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      ACHPaymentTransactionReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      ACHPaymentTransactionRecord:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      PaymentTransactionInitiatorReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      SpecialInstructions:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Amount:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Currency:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      DateType:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                description: 'Output: ReBQ Retrieve details about an inbound ACH transaction batch'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '429':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+  /ACHOperations/{achoperationsid}/OutboundACH/Initiate:
+    post:
+      summary: InBQ Initiate an outbound ACH transaction batch handling
+      description: InBQ Initiate an outbound ACH transaction batch handling
+      parameters:
+        - name: achoperationsid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                InboundACH:
+                  type: object
+                  properties:
+                    ACHPaymentTransactionReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    ACHPaymentTransactionRecord:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    PaymentTransactionInitiatorReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerProductInstanceReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeProductInstanceReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    SpecialInstructions:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    Amount:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    Currency:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    DateType:
+                      type: string
+                      description: "\r\n"
+                      format: string
+              description: 'Input: InBQ Initiate an outbound ACH transaction batch handling'
+      responses:
+        '200':
+          description: InitiateOutboundACHRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  InboundACH:
+                    type: object
+                    properties:
+                      ACHPaymentTransactionReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      ACHPaymentTransactionRecord:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      PaymentTransactionInitiatorReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      SpecialInstructions:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Amount:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Currency:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      DateType:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                description: 'Input: InBQ Initiate an outbound ACH transaction batch handling'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '429':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+  /ACHOperations/{achoperationsid}/OutboundACH/{outboundachid}/Update:
+    put:
+      summary: UpBQ Update an outbound ACH transaction batch
+      description: UpBQ Update an outbound ACH transaction batch
+      parameters:
+        - name: achoperationsid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: outboundachid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                InboundACH:
+                  type: object
+                  properties:
+                    ACHPaymentTransactionReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    ACHPaymentTransactionRecord:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    PaymentTransactionInitiatorReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerProductInstanceReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeProductInstanceReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    SpecialInstructions:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    Amount:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    Currency:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    DateType:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                OutboundACH:
+                  type: object
+                  properties:
+                    OutboundACHTransactionBatchReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+              description: 'Input: UpBQ Update an outbound ACH transaction batch'
+      responses:
+        '200':
+          description: UpdateOutboundACHResponse
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  InboundACH:
+                    type: object
+                    properties:
+                      ACHPaymentTransactionReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      ACHPaymentTransactionRecord:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      PaymentTransactionInitiatorReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      SpecialInstructions:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Amount:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Currency:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      DateType:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                description: 'Output: UpBQ Update an outbound ACH transaction batch'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '429':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+  /ACHOperations/{achoperationsid}/OutboundACH/{outboundachid}/Retrieve:
+    get:
+      summary: ReBQ Retrieve details about an outbound ACH transaction batch
+      description: ReBQ Retrieve details about an outbound ACH transaction batch
+      parameters:
+        - name: achoperationsid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: outboundachid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        '200':
+          description: RetrieveOutboundACHResponse
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  InboundACH:
+                    type: object
+                    properties:
+                      ACHPaymentTransactionReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      ACHPaymentTransactionRecord:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      PaymentTransactionInitiatorReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      SpecialInstructions:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Amount:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Currency:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      DateType:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                  OutboundACH:
+                    type: object
+                    properties:
+                      OutboundACHTransactionBatchReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                description: 'Output: ReBQ Retrieve details about an outbound ACH transaction batch'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '429':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+  /ACHOperations/{achoperationsid}/Warehousing/Initiate:
+    post:
+      summary: InBQ Initiate a warehoused outbound ACH transaction batch
+      description: InBQ Initiate a warehoused outbound ACH transaction batch
+      parameters:
+        - name: achoperationsid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                InboundACH:
+                  type: object
+                  properties:
+                    ACHPaymentTransactionReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    ACHPaymentTransactionRecord:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    PaymentTransactionInitiatorReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerProductInstanceReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeProductInstanceReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    SpecialInstructions:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    Amount:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    Currency:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    DateType:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                OutboundACH:
+                  type: object
+                  properties:
+                    OutboundACHTransactionBatchReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                Warehousing:
+                  type: object
+                  properties:
+                    ScheduleReleaseDateTime:
+                      type: object
+                      properties:
+                        DateContent:
+                          type: string
+                          description: ''
+                          format: string
+                      description: The schedule for handling the warehoused transaction batch
+              description: 'Input: InBQ Initiate a warehoused outbound ACH transaction batch'
+      responses:
+        '200':
+          description: InitiateWarehousingResponse
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  InboundACH:
+                    type: object
+                    properties:
+                      DateType:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                description: 'Output: InBQ Initiate a warehoused outbound ACH transaction batch'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '429':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+  /ACHOperations/{achoperationsid}/Warehousing/{warehousingid}/Update:
+    put:
+      summary: UpBQ Update a warehoused outbound ACH transaction batch
+      description: UpBQ Update a warehoused outbound ACH transaction batch
+      parameters:
+        - name: achoperationsid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: warehousingid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                InboundACH:
+                  type: object
+                  properties:
+                    ACHPaymentTransactionReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    ACHPaymentTransactionRecord:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    PaymentTransactionInitiatorReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerProductInstanceReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeProductInstanceReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    SpecialInstructions:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    Amount:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    Currency:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    DateType:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                OutboundACH:
+                  type: object
+                  properties:
+                    OutboundACHTransactionBatchReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                Warehousing:
+                  type: object
+                  properties:
+                    ScheduleReleaseDateTime:
+                      type: object
+                      properties:
+                        DateContent:
+                          type: string
+                          description: ''
+                          format: string
+                      description: The schedule for handling the warehoused transaction batch
+              description: 'Input: UpBQ Update a warehoused outbound ACH transaction batch'
+      responses:
+        '200':
+          description: UpdateWarehousingResponse
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  InboundACH:
+                    type: object
+                    properties:
+                      ACHPaymentTransactionReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      ACHPaymentTransactionRecord:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      PaymentTransactionInitiatorReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      SpecialInstructions:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Amount:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Currency:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      DateType:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                  OutboundACH:
+                    type: object
+                    properties:
+                      OutboundACHTransactionBatchReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                  Warehousing:
+                    type: object
+                    properties:
+                      ScheduleReleaseDateTime:
+                        type: object
+                        properties:
+                          DateContent:
+                            type: string
+                            description: ''
+                            format: string
+                        description: The schedule for handling the warehoused transaction batch
+                description: 'Output: UpBQ Update a warehoused outbound ACH transaction batch'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '429':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+  /ACHOperations/{achoperationsid}/Warehousing/{warehousingid}/Retrieve:
+    get:
+      summary: ReBQ Retrieve details about a warehoused outbound ACH transaction batch
+      description: ReBQ Retrieve details about a warehoused outbound ACH transaction batch
+      parameters:
+        - name: achoperationsid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: warehousingid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        '200':
+          description: RetrieveWarehousingResponse
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  InboundACH:
+                    type: object
+                    properties:
+                      ACHPaymentTransactionReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      ACHPaymentTransactionRecord:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      PaymentTransactionInitiatorReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      SpecialInstructions:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Amount:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Currency:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      DateType:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                  OutboundACH:
+                    type: object
+                    properties:
+                      OutboundACHTransactionBatchReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                  Warehousing:
+                    type: object
+                    properties:
+                      ScheduleReleaseDateTime:
+                        type: object
+                        properties:
+                          DateContent:
+                            type: string
+                            description: ''
+                            format: string
+                        description: The schedule for handling the warehoused transaction batch
+                description: 'Output: ReBQ Retrieve details about a warehoused outbound ACH transaction batch'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '429':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+  /ACHOperations/{achoperationsid}/ClearingandSettlement/Initiate:
+    post:
+      summary: InBQ Initiate an ACH transaction batch clearing and settlement processing
+      description: InBQ Initiate an ACH transaction batch clearing and settlement processing
+      parameters:
+        - name: achoperationsid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                InboundACH:
+                  type: object
+                  properties:
+                    InboundACHTransactionBatchReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    ACHPaymentTransactionReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    ACHPaymentTransactionRecord:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    PaymentTransactionInitiatorReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerProductInstanceReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeProductInstanceReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    SpecialInstructions:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    Amount:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    Currency:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    DateType:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                OutboundACH:
+                  type: object
+                  properties:
+                    OutboundACHTransactionBatchReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                ClearingandSettlement:
+                  type: object
+                  properties:
+                    CorrespondentBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    CorrespondentBankClearingAgreementReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    CorrespondentBankClearingAgreementClearingInstructions:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    CorrespondentBankClearingAgreementSettlementInstructions:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    MirrorNostroAccountReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+              description: 'Input: InBQ Initiate an ACH transaction batch clearing and settlement processing'
+      responses:
+        '200':
+          description: InitiateClearingandSettlementResponse
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  InboundACH:
+                    type: object
+                    properties:
+                      DateType:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                description: 'Output: InBQ Initiate an ACH transaction batch clearing and settlement processing'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '429':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+  /ACHOperations/{achoperationsid}/ClearingandSettlement/{clearingandsettlementid}/Update:
+    put:
+      summary: UpBQ Update an ACH transaction batch in clearing and settlement
+      description: UpBQ Update an ACH transaction batch in clearing and settlement
+      parameters:
+        - name: achoperationsid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: clearingandsettlementid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                InboundACH:
+                  type: object
+                  properties:
+                    InboundACHTransactionBatchReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    ACHPaymentTransactionReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    ACHPaymentTransactionRecord:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    PaymentTransactionInitiatorReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerProductInstanceReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeProductInstanceReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    SpecialInstructions:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    Amount:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    Currency:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    DateType:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                OutboundACH:
+                  type: object
+                  properties:
+                    OutboundACHTransactionBatchReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                ClearingandSettlement:
+                  type: object
+                  properties:
+                    CorrespondentBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    CorrespondentBankClearingAgreementReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    CorrespondentBankClearingAgreementClearingInstructions:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    CorrespondentBankClearingAgreementSettlementInstructions:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    MirrorNostroAccountReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+              description: 'Input: UpBQ Update an ACH transaction batch in clearing and settlement'
+      responses:
+        '200':
+          description: UpdateClearingandSettlementResponse
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  InboundACH:
+                    type: object
+                    properties:
+                      InboundACHTransactionBatchReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      ACHPaymentTransactionReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      ACHPaymentTransactionRecord:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      PaymentTransactionInitiatorReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      SpecialInstructions:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Amount:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Currency:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      DateType:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                  OutboundACH:
+                    type: object
+                    properties:
+                      OutboundACHTransactionBatchReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                  ClearingandSettlement:
+                    type: object
+                    properties:
+                      CorrespondentBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      CorrespondentBankClearingAgreementReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      CorrespondentBankClearingAgreementClearingInstructions:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      CorrespondentBankClearingAgreementSettlementInstructions:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      MirrorNostroAccountReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                description: 'Output: UpBQ Update an ACH transaction batch in clearing and settlement'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '429':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+  /ACHOperations/{achoperationsid}/ClearingandSettlement/{clearingandsettlementid}/Retrieve:
+    get:
+      summary: ReBQ Retrieve details about an ACH transaction batch in clearing and settlement
+      description: ReBQ Retrieve details about an ACH transaction batch in clearing and settlement
+      parameters:
+        - name: achoperationsid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: clearingandsettlementid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        '200':
+          description: RetrieveClearingandSettlementResponse
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  InboundACH:
+                    type: object
+                    properties:
+                      InboundACHTransactionBatchReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      ACHPaymentTransactionReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      ACHPaymentTransactionRecord:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      PaymentTransactionInitiatorReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      SpecialInstructions:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Amount:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Currency:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      DateType:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                  OutboundACH:
+                    type: object
+                    properties:
+                      OutboundACHTransactionBatchReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                  ClearingandSettlement:
+                    type: object
+                    properties:
+                      CorrespondentBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      CorrespondentBankClearingAgreementReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      CorrespondentBankClearingAgreementClearingInstructions:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      CorrespondentBankClearingAgreementSettlementInstructions:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      MirrorNostroAccountReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                description: 'Output: ReBQ Retrieve details about an ACH transaction batch in clearing and settlement'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '429':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+  /ACHOperations/{achoperationsid}/Reconciliation/Initiate:
+    post:
+      summary: InBQ Initiate the reconciliation of ACH transactions
+      description: InBQ Initiate the reconciliation of ACH transactions
+      parameters:
+        - name: achoperationsid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                InboundACH:
+                  type: object
+                  properties:
+                    InboundACHTransactionBatchReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    ACHPaymentTransactionReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    ACHPaymentTransactionRecord:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    PaymentTransactionInitiatorReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerProductInstanceReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeProductInstanceReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    SpecialInstructions:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    Amount:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    Currency:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    DateType:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                OutboundACH:
+                  type: object
+                  properties:
+                    OutboundACHTransactionBatchReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                ClearingandSettlement:
+                  type: object
+                  properties:
+                    CorrespondentBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    CorrespondentBankClearingAgreementReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    CorrespondentBankClearingAgreementClearingInstructions:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    CorrespondentBankClearingAgreementSettlementInstructions:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    MirrorNostroAccountReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+              description: 'Input: InBQ Initiate the reconciliation of ACH transactions'
+      responses:
+        '200':
+          description: InitiateReconciliationResponse
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  OutboundACH:
+                    type: object
+                    properties:
+                      OutboundACHTransactionBatchReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                  Reconciliation:
+                    type: object
+                    properties:
+                      ACHReconciliationTaskResult:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                description: 'Output: InBQ Initiate the reconciliation of ACH transactions'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '429':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+  /ACHOperations/{achoperationsid}/Reconciliation/{reconciliationid}/Update:
+    put:
+      summary: UpBQ Update an transaction in reconciliations
+      description: UpBQ Update an transaction in reconciliations
+      parameters:
+        - name: achoperationsid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: reconciliationid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                InboundACH:
+                  type: object
+                  properties:
+                    InboundACHTransactionBatchReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    ACHPaymentTransactionReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    ACHPaymentTransactionRecord:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    PaymentTransactionInitiatorReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayerProductInstanceReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeProductInstanceReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    PayeeBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    SpecialInstructions:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    Amount:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    Currency:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    DateType:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                OutboundACH:
+                  type: object
+                  properties:
+                    OutboundACHTransactionBatchReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                ClearingandSettlement:
+                  type: object
+                  properties:
+                    CorrespondentBankReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    CorrespondentBankClearingAgreementReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                    CorrespondentBankClearingAgreementClearingInstructions:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    CorrespondentBankClearingAgreementSettlementInstructions:
+                      type: string
+                      description: "\r\n"
+                      format: string
+                    MirrorNostroAccountReference:
+                      type: string
+                      description: "\r\n"
+                      format: object
+                Reconciliation:
+                  type: object
+                  properties:
+                    ACHReconciliationTaskResult:
+                      type: string
+                      description: "\r\n"
+                      format: string
+              description: 'Input: UpBQ Update an transaction in reconciliations'
+      responses:
+        '200':
+          description: UpdateReconciliationResponse
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  InboundACH:
+                    type: object
+                    properties:
+                      InboundACHTransactionBatchReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      ACHPaymentTransactionReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      ACHPaymentTransactionRecord:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      PaymentTransactionInitiatorReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      SpecialInstructions:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Amount:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Currency:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      DateType:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                  OutboundACH:
+                    type: object
+                    properties:
+                      OutboundACHTransactionBatchReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                  ClearingandSettlement:
+                    type: object
+                    properties:
+                      CorrespondentBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      CorrespondentBankClearingAgreementReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      CorrespondentBankClearingAgreementClearingInstructions:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      CorrespondentBankClearingAgreementSettlementInstructions:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      MirrorNostroAccountReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                  Reconciliation:
+                    type: object
+                    properties:
+                      ACHReconciliationTaskResult:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                description: 'Output: UpBQ Update an transaction in reconciliations'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '429':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+  /ACHOperations/{achoperationsid}/Reconciliation/{reconciliationid}/Retrieve:
+    get:
+      summary: ReBQ Retrieve details about ACH transaction reconciliations
+      description: ReBQ Retrieve details about ACH transaction reconciliations
+      parameters:
+        - name: achoperationsid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: reconciliationid
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        '200':
+          description: RetrieveReconciliationResponse
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  InboundACH:
+                    type: object
+                    properties:
+                      InboundACHTransactionBatchReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      ACHPaymentTransactionReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      ACHPaymentTransactionRecord:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      PaymentTransactionInitiatorReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayerProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeProductInstanceReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      PayeeBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      SpecialInstructions:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Amount:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      Currency:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      DateType:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                  OutboundACH:
+                    type: object
+                    properties:
+                      OutboundACHTransactionBatchReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                  ClearingandSettlement:
+                    type: object
+                    properties:
+                      CorrespondentBankReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      CorrespondentBankClearingAgreementReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                      CorrespondentBankClearingAgreementClearingInstructions:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      CorrespondentBankClearingAgreementSettlementInstructions:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                      MirrorNostroAccountReference:
+                        type: string
+                        description: "\r\n"
+                        format: object
+                  Reconciliation:
+                    type: object
+                    properties:
+                      ACHReconciliationTaskResult:
+                        type: string
+                        description: "\r\n"
+                        format: string
+                description: 'Output: ReBQ Retrieve details about ACH transaction reconciliations'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '429':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_code:
+                    type: string
+                    format: string
+                  status:
+                    type: string
+                    format: string
+                  message:
+                    type: string
+                    format: string
+                description: Status Attributes
