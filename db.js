@@ -1,5 +1,5 @@
 // 1. Create a new database
-use sample_db;
+use Micro;
  
 // 2. Drop collections if they exist
 db.department.drop();
